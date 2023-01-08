@@ -1,4 +1,4 @@
 ---
-- hosts: uat-webservers.yml
+- hosts: uat-webservers
   roles:
      - webserver
