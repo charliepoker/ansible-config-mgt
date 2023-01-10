@@ -13,17 +13,17 @@
     state: present
 
 - name: clone a repo
-  become: true 
+  become: true
   ansible.builtin.git:
-  repo: https://github.com/charliepoker/tooling.git
-  dest: /var/www/html
-  force: yes
+    repo: https://github.com/charliepoker/tooling.git
+    dest: /var/www/html
+    force: yes
 
 - name: copy html content to one level up
   become: true
   command: cp -r /var/www/html/html/ /var/www/
 
-- name: start httpd if not started
+- name: Start service httpd, if not started
   become: true
   ansible.builtin.service:
     name: httpd
