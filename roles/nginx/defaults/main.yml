@@ -1,0 +1,9 @@
+---
+# default file for apacheRole
+enable_nginx_lb: false
+load_balancer_is_required: false
+
+# IP mapping for webservers
+web1: 172.31.85.180  
+web2: 172.31.81.54   
+web3: 172.31.85.66 
