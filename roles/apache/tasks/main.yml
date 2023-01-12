@@ -17,23 +17,23 @@
 - name: Enable required Apache2 Modules
   become: yes
   shell: |
-    a2enmode rewrite
-    a2enmode proxy
-    a2enmode proxy_balancer
-    a2enmode proxy_http
-    a2enmode headers
-    a2enmode lbmethod_bytraffic
+    a2enmod rewrite
+    a2enmod proxy
+    a2enmod proxy_balancer
+    a2enmod proxy_http
+    a2enmod headers
+    a2enmod lbmethod_bytraffic
   notify: Restart apache2 service
 
 - name: Copy configuration file
   become: yes
-  template: 
+  template:
     src: apache.conf.j2
     dest: /etc/apache2/sites-available/000-default.conf
     owner: root
-    group: 0664
+    group: root
+    mode: 0664
   notify: Restart apache2 service
-
 
 - name: Enable load balancer configuration
   become: yes
